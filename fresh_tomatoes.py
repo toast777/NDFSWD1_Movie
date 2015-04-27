@@ -40,6 +40,10 @@ main_page_head = '''
             background-color: #EEE;
             cursor: pointer;
         }
+        .wiki-link:hover {
+            background-color: yellow;
+            cursor: pointer;
+            }
         .scale-media {
             padding-bottom: 56.25%;
             position: relative;
@@ -53,6 +57,26 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
+        .multiple-borders {
+         -webkit-box-shadow:
+                0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+   
+         -moz-box-shadow:
+                0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+   
+          box-shadow:
+                0px 0px 0px 2px rgba(0,0,0,0.6),
+                0px 0px 0px 14px #fff,
+                0px 0px 0px 18px rgba(0,0,0,0.2),
+                6px 6px 8px 17px #555;
+    }
+
     </style>
     <script type="text/javascript" charset="utf-8">
         // Pause the video when the modal is closed
@@ -105,12 +129,12 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+            <a class="navbar-brand" href="#">My Favorite Movies</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="row">
       {movie_tiles}
     </div>
   </body>
@@ -118,12 +142,24 @@ main_page_content = '''
 '''
 
 # A single movie entry html template
+#    <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+
 movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
-    <p>{movie_story}</p>
-</div>
+
+    <div class="col-md-6 col-lg-4 movie-tile text-center multiple-borders">
+        <div data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+            <img src="{poster_image_url}" width="220" height="342">
+            <h2>{movie_title}</h2>
+            <p>{movie_story}</p>
+        </div>
+        <div >
+            <a  class = "wiki-link" href="{wiki_link}" target="_blank">Wikipedia Link</a>
+        </div>
+    </div>
+
+
+
+
 '''
 
 def create_movie_tiles_content(movies):
@@ -139,6 +175,7 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             movie_title=movie.title,
             movie_story=movie.storyline,
+            wiki_link=movie.wiki_url,
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id
         )
