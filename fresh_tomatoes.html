@@ -1,7 +1,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fresh Tomatoes!</title>
+    <title>My Favorite Movies!</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -28,7 +28,7 @@
             height: 100%;
         }
         .movie-tile {
-            margin-bottom: 20px;
+            margin: 40px 20px;
             padding-top: 20px;
         }
         .movie-tile:hover {
@@ -52,7 +52,7 @@
             top: 0;
             background-color: white;
         }
-        .multiple-borders {
+        .movie-frame {
          -webkit-box-shadow:
                 0px 0px 0px 2px rgba(0,0,0,0.6),
                 0px 0px 0px 14px #fff,
@@ -70,7 +70,10 @@
                 0px 0px 0px 14px #fff,
                 0px 0px 0px 18px rgba(0,0,0,0.2),
                 6px 6px 8px 17px #555;
-    }
+        }
+        .row
+        {   margin:10px;
+        }
 
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -82,8 +85,9 @@
         });
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            var trailerYouTubeId = this.getAttribute('data-trailer-youtube-id')
+            document.write(trailerYouTubeId);
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
@@ -129,15 +133,10 @@
     <div class="row">
       
 
-    <div class="col-md-6 col-lg-4 movie-tile text-center multiple-borders">
-        <div data-trailer-youtube-id="4KPTXpQehio" data-toggle="modal" data-target="#trailer">
-            <img src="http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg" width="220" height="342">
-            <h2>Toy Story</h2>
-            <p>A story of a boy and his toys</p>
-        </div>
-        <div >
-            <a  class = "wiki-link" href="http://en.wikipedia.org/wiki/Toy_Story" target="_blank">Wikipedia Link</a>
-        </div>
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="pFeCVCKYo4Y" data-toggle="modal" data-target="#trailer"">
+            <img src="http://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Master_and_Commander-The_Far_Side_of_the_World_poster.png/220px-Master_and_Commander-The_Far_Side_of_the_World_poster.png" width="220" height="342">
+            <h2>Master and Commander</h2>
+            <p>An English captain is hunted by a French Privateer</p>
     </div>
 
 
@@ -145,15 +144,32 @@
 
 
 
-    <div class="col-md-6 col-lg-4 movie-tile text-center multiple-borders">
-        <div data-trailer-youtube-id="cRdxXPV9GNQ" data-toggle="modal" data-target="#trailer">
-            <img src="http://upload.wikimedia.org/wikipedia/en/thumb/b/b0/Avatar-Teaser-Poster.jpg/220px-Avatar-Teaser-Poster.jpg" width="220" height="342">
-            <h2>Avatar</h2>
-            <p>A marine on a alien planet</p>
-        </div>
-        <div >
-            <a  class = "wiki-link" href="http://en.wikipedia.org/wiki/Avatar_(2009_film)" target="_blank">Wikipedia Link</a>
-        </div>
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="1g3_CFmnU7k" data-toggle="modal" data-target="#trailer"">
+            <img src="http://upload.wikimedia.org/wikipedia/en/thumb/8/87/StarWarsMoviePoster1977.jpg/220px-StarWarsMoviePoster1977.jpg" width="220" height="342">
+            <h2>Star Wars:A New Hope</h2>
+            <p>A boy and his laser sword</p>
+    </div>
+
+
+
+
+
+
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="fZrDALCsKwI" data-toggle="modal" data-target="#trailer"">
+            <img src="http://ia.media-imdb.com/images/M/MV5BNzA3MDI3MzAxMl5BMl5BanBnXkFtZTcwNDY2Mjc0OQ@@._V1_SY317_CR0,0,214,317_AL_.jpg" width="220" height="342">
+            <h2>History of Future Folk</h2>
+            <p>Aliens that like Folk Music</p>
+    </div>
+
+
+
+
+
+
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="0vxOhd4qlnA" data-toggle="modal" data-target="#trailer"">
+            <img src="http://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Interstellar_film_poster.jpg/220px-Interstellar_film_poster.jpg" width="220" height="342">
+            <h2>Insterstellar</h2>
+            <p>Time Travel, Space and lots of Dust</p>
     </div>
 
 

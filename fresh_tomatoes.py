@@ -6,7 +6,7 @@ import re
 main_page_head = '''
 <head>
     <meta charset="utf-8">
-    <title>Fresh Tomatoes!</title>
+    <title>My Favorite Movies!</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -33,7 +33,7 @@ main_page_head = '''
             height: 100%;
         }
         .movie-tile {
-            margin-bottom: 20px;
+            margin: 40px 20px;
             padding-top: 20px;
         }
         .movie-tile:hover {
@@ -57,7 +57,7 @@ main_page_head = '''
             top: 0;
             background-color: white;
         }
-        .multiple-borders {
+        .movie-frame {
          -webkit-box-shadow:
                 0px 0px 0px 2px rgba(0,0,0,0.6),
                 0px 0px 0px 14px #fff,
@@ -75,7 +75,10 @@ main_page_head = '''
                 0px 0px 0px 14px #fff,
                 0px 0px 0px 18px rgba(0,0,0,0.2),
                 6px 6px 8px 17px #555;
-    }
+        }
+        .row
+        {   margin:10px;
+        }
 
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -87,8 +90,9 @@ main_page_head = '''
         });
         // Start playing the video whenever the trailer modal is opened
         $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            var trailerYouTubeId = this.getAttribute('data-trailer-youtube-id')
+            document.write(trailerYouTubeId);
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
               'type': 'text-html',
@@ -141,20 +145,14 @@ main_page_content = '''
 </html>
 '''
 
-# A single movie entry html template
-#    <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+# A single movie entry html template added wikipedia link in seperate div
 
 movie_tile_content = '''
 
-    <div class="col-md-6 col-lg-4 movie-tile text-center multiple-borders">
-        <div data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer"">
             <img src="{poster_image_url}" width="220" height="342">
             <h2>{movie_title}</h2>
             <p>{movie_story}</p>
-        </div>
-        <div >
-            <a  class = "wiki-link" href="{wiki_link}" target="_blank">Wikipedia Link</a>
-        </div>
     </div>
 
 
@@ -170,7 +168,7 @@ def create_movie_tiles_content(movies):
         youtube_id_match = re.search(r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
         youtube_id_match = youtube_id_match or re.search(r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
         trailer_youtube_id = youtube_id_match.group(0) if youtube_id_match else None
-
+        
         # Append the tile for the movie with its content filled in
         content += movie_tile_content.format(
             movie_title=movie.title,
@@ -179,6 +177,7 @@ def create_movie_tiles_content(movies):
             poster_image_url=movie.poster_image_url,
             trailer_youtube_id=trailer_youtube_id
         )
+  
     return content
 
 def open_movies_page(movies):
