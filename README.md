@@ -14,13 +14,15 @@ Quick Start Guide
 4. To review Movies web-page without any changes to movies open file->fresh_tomatoes.html
 
 Project Files
-Within the download you'll find the following directories and files:
-README.md			Readme File
-entertainment_center.py		Python File to implement movies class and load web page 
-fresh_tomatoes.html		Finished Movie Project webpage - run module again to get new html file
-fresh_tomatoes.py		Python File with web page template
-fresh_tomatoes.pyc		Compile Python File
-media.py			Python File with movie class definition
-media.pyc			Compiled Python File
+Within the download you'll find the following files:
+|Name                     |Description      
+|-------------------------|-------------------------------------------------------------------------|
+|README.md			          |Readme File                                                              |
+|entertainment_center.py	|Python File to implement movies class and load web page                  |
+|fresh_tomatoes.html		  |Finished Movie Project webpage - run module again to get new html file   |
+|fresh_tomatoes.py		    |Python File with web page template                                       |
+|fresh_tomatoes.pyc		    |Compile Python File                                                      |
+|media.py			            |Python File with movie class definition                                  |
+|media.pyc			          |Compiled Python File                                                     |
 
 
