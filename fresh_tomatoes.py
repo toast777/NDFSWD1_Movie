@@ -89,9 +89,8 @@ main_page_head = '''
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.movie-tile2', function (event) {
             var trailerYouTubeId = this.getAttribute('data-trailer-youtube-id')
-            document.write(trailerYouTubeId);
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
@@ -149,11 +148,17 @@ main_page_content = '''
 
 movie_tile_content = '''
 
-    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer"">
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame">
+        <div class="movie-tile2" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
             <img src="{poster_image_url}" width="220" height="342">
             <h2>{movie_title}</h2>
             <p>{movie_story}</p>
+        </div>
+        <div >
+            <a  class = "wiki-link" href="{wiki_link}" target="_blank">Wikipedia Link</a>
+        </div>
     </div>
+
 
 
 

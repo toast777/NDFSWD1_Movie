@@ -84,9 +84,8 @@
             $("#trailer-video-container").empty();
         });
         // Start playing the video whenever the trailer modal is opened
-        $(document).on('click', '.movie-tile', function (event) {
+        $(document).on('click', '.movie-tile2', function (event) {
             var trailerYouTubeId = this.getAttribute('data-trailer-youtube-id')
-            document.write(trailerYouTubeId);
             var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1';
             $("#trailer-video-container").empty().append($("<iframe></iframe>", {
               'id': 'trailer-video',
@@ -133,10 +132,15 @@
     <div class="row">
       
 
-    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="pFeCVCKYo4Y" data-toggle="modal" data-target="#trailer"">
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame">
+        <div class="movie-tile2" data-trailer-youtube-id="pFeCVCKYo4Y" data-toggle="modal" data-target="#trailer">
             <img src="http://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Master_and_Commander-The_Far_Side_of_the_World_poster.png/220px-Master_and_Commander-The_Far_Side_of_the_World_poster.png" width="220" height="342">
             <h2>Master and Commander</h2>
             <p>An English captain is hunted by a French Privateer</p>
+        </div>
+        <div >
+            <a  class = "wiki-link" href="http://en.wikipedia.org/wiki/Master_and_Commander:_The_Far_Side_of_the_World" target="_blank">Wikipedia Link</a>
+        </div>
     </div>
 
 
@@ -144,10 +148,16 @@
 
 
 
-    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="1g3_CFmnU7k" data-toggle="modal" data-target="#trailer"">
+
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame">
+        <div class="movie-tile2" data-trailer-youtube-id="1g3_CFmnU7k" data-toggle="modal" data-target="#trailer">
             <img src="http://upload.wikimedia.org/wikipedia/en/thumb/8/87/StarWarsMoviePoster1977.jpg/220px-StarWarsMoviePoster1977.jpg" width="220" height="342">
             <h2>Star Wars:A New Hope</h2>
             <p>A boy and his laser sword</p>
+        </div>
+        <div >
+            <a  class = "wiki-link" href="http://en.wikipedia.org/wiki/Star_Wars_(film)" target="_blank">Wikipedia Link</a>
+        </div>
     </div>
 
 
@@ -155,10 +165,16 @@
 
 
 
-    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="fZrDALCsKwI" data-toggle="modal" data-target="#trailer"">
+
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame">
+        <div class="movie-tile2" data-trailer-youtube-id="fZrDALCsKwI" data-toggle="modal" data-target="#trailer">
             <img src="http://ia.media-imdb.com/images/M/MV5BNzA3MDI3MzAxMl5BMl5BanBnXkFtZTcwNDY2Mjc0OQ@@._V1_SY317_CR0,0,214,317_AL_.jpg" width="220" height="342">
             <h2>History of Future Folk</h2>
             <p>Aliens that like Folk Music</p>
+        </div>
+        <div >
+            <a  class = "wiki-link" href="http://en.wikipedia.org/wiki/Future_Folk" target="_blank">Wikipedia Link</a>
+        </div>
     </div>
 
 
@@ -166,11 +182,18 @@
 
 
 
-    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame data-trailer-youtube-id="0vxOhd4qlnA" data-toggle="modal" data-target="#trailer"">
+
+    <div class="col-md-5 col-lg-3 movie-tile text-center movie-frame">
+        <div class="movie-tile2" data-trailer-youtube-id="0vxOhd4qlnA" data-toggle="modal" data-target="#trailer">
             <img src="http://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Interstellar_film_poster.jpg/220px-Interstellar_film_poster.jpg" width="220" height="342">
             <h2>Insterstellar</h2>
             <p>Time Travel, Space and lots of Dust</p>
+        </div>
+        <div >
+            <a  class = "wiki-link" href="http://en.wikipedia.org/wiki/Interstellar_%28film%29" target="_blank">Wikipedia Link</a>
+        </div>
     </div>
+
 
 
 
